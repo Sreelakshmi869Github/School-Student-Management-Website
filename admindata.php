@@ -1,0 +1,106 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "student"; // Change this to your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Admin login handling
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $admin_username = $_POST["username"];
+    $admin_password = $_POST["password"];
+
+    // Query to check if the admin credentials are valid
+    $sql = "SELECT * FROM admindata WHERE username = '$admin_username' AND password = '$admin_password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Admin login successful
+        header("location: adminpage.php");
+        exit;
+        // You can redirect to another page or perform additional actions here
+    } else {
+        // Admin login failed
+        echo "Invalid username or password!";
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
+
+<!-- HTML form for admin login -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('collage.jpg'); /* Add the path to your image file */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.8); /* Adjust the background color and opacity */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Add more styles as needed */
+    </style>
+</head>
+<body>
+
+<h2>Admin Login</h2>
+
+<form method="post" action="">
+    Username: <input type="text" name="username" required><br>
+    Password: <input type="password" name="password" required><br>
+    <input type="submit" value="Login">
+</form>
+
+</body>
+</html>

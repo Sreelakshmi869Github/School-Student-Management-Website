@@ -1,0 +1,444 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 17, 2023 at 07:11 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `student`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1st`
+--
+
+CREATE TABLE `1st` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(10) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `1st`
+--
+
+INSERT INTO `1st` (`sid`, `sname`, `status`, `contact`) VALUES
+(1, 'Aaron', 'present', '8281979988'),
+(2, 'Bella', 'present', '9876543210'),
+(3, 'Charlie', 'present', '8765432109'),
+(4, 'David', 'present', '7654321098'),
+(5, 'Emma', 'present', '6543210987'),
+(6, 'Frank', 'present', '5432109876'),
+(7, 'Grace', 'present', '4321098765'),
+(8, 'Henry', 'present', '3210987654'),
+(9, 'Isabel', 'present', '2109876543'),
+(10, 'Jack', 'present', '1098765432'),
+(11, 'Katherine', 'present', '9876543210'),
+(12, 'Liam', 'present', '8765432109'),
+(13, 'Mia', 'present', '7654321098'),
+(14, 'Noah', 'present', '6543210987'),
+(15, 'Olivia', 'present', '5432109876'),
+(16, 'Peter', 'present', '4321098765'),
+(17, 'Quinn', 'present', '3210987654'),
+(18, 'Ryan', 'present', '2109876543'),
+(19, 'Sophia', 'present', '1098765432'),
+(20, 'Thomas', 'present', '9876543210'),
+(21, 'Uma', 'present', '8765432109'),
+(22, 'Vincent', 'present', '7654321098'),
+(23, 'Willow', 'present', '6543210987'),
+(24, 'Xavier', 'present', '5432109876'),
+(25, 'Yasmine', 'present', '4321098765');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `2nd`
+--
+
+CREATE TABLE `2nd` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `2nd`
+--
+
+INSERT INTO `2nd` (`sid`, `sname`, `status`, `contact`) VALUES
+(1, 'Aaron', 'present', '8281979988'),
+(2, 'Bella', 'present', '9876543210'),
+(3, 'Charlie', 'present', '8765432109'),
+(4, 'David', 'present', '7654321098'),
+(5, 'Emma', 'present', '6543210987'),
+(6, 'Frank', 'present', '5432109876'),
+(7, 'Grace', 'present', '4321098765'),
+(8, 'Henry', 'present', '3210987654'),
+(9, 'Isabel', 'present', '2109876543'),
+(10, 'Jack', 'present', '1098765432'),
+(11, 'Katherine', 'present', '9876543210'),
+(12, 'Liam', 'present', '8765432109'),
+(13, 'Mia', 'present', '7654321098'),
+(14, 'Noah', 'present', '6543210987'),
+(15, 'Olivia', 'present', '5432109876'),
+(16, 'Peter', 'present', '4321098765'),
+(17, 'Quinn', 'present', '3210987654'),
+(18, 'Ryan', 'present', '2109876543'),
+(19, 'Sophia', 'present', '1098765432'),
+(20, 'Thomas', 'present', '9876543210'),
+(21, 'Uma', 'present', '8765432109'),
+(22, 'Vincent', 'present', '7654321098'),
+(23, 'Willow', 'present', '6543210987'),
+(24, 'Xavier', 'present', '5432109876'),
+(25, 'Yasmine', 'present', '4321098765');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `3rd`
+--
+
+CREATE TABLE `3rd` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `3rd`
+--
+
+INSERT INTO `3rd` (`sid`, `sname`, `status`, `contact`) VALUES
+(2, 'rohit', 'Present', '8281099009');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `4th`
+--
+
+CREATE TABLE `4th` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `5th`
+--
+
+CREATE TABLE `5th` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `6th`
+--
+
+CREATE TABLE `6th` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `7th`
+--
+
+CREATE TABLE `7th` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `8th`
+--
+
+CREATE TABLE `8th` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `9th`
+--
+
+CREATE TABLE `9th` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `10th`
+--
+
+CREATE TABLE `10th` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `11th`
+--
+
+CREATE TABLE `11th` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `12th`
+--
+
+CREATE TABLE `12th` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admindata`
+--
+
+CREATE TABLE `admindata` (
+  `username` varchar(25) NOT NULL,
+  `password` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admindata`
+--
+
+INSERT INTO `admindata` (`username`, `password`) VALUES
+('adminuser', '1234');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendance`
+--
+
+CREATE TABLE `attendance` (
+  `sid` int(11) NOT NULL,
+  `s_name` varchar(100) NOT NULL,
+  `class` int(11) NOT NULL,
+  `attendance_date` date NOT NULL,
+  `attendance_status` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendance_records`
+--
+
+CREATE TABLE `attendance_records` (
+  `id` int(11) NOT NULL,
+  `class` varchar(10) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `student_id` int(11) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `attendance_records`
+--
+
+INSERT INTO `attendance_records` (`id`, `class`, `date`, `student_id`, `status`) VALUES
+(127, '3rd', '2023-12-17', 2, 'absent');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher`
+--
+
+CREATE TABLE `teacher` (
+  `tid` int(11) NOT NULL,
+  `tname` varchar(100) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `1st`
+--
+ALTER TABLE `1st`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `2nd`
+--
+ALTER TABLE `2nd`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `3rd`
+--
+ALTER TABLE `3rd`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `4th`
+--
+ALTER TABLE `4th`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `5th`
+--
+ALTER TABLE `5th`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `6th`
+--
+ALTER TABLE `6th`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `7th`
+--
+ALTER TABLE `7th`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `8th`
+--
+ALTER TABLE `8th`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `9th`
+--
+ALTER TABLE `9th`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `10th`
+--
+ALTER TABLE `10th`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `11th`
+--
+ALTER TABLE `11th`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `12th`
+--
+ALTER TABLE `12th`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `admindata`
+--
+ALTER TABLE `admindata`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `attendance_records`
+--
+ALTER TABLE `attendance_records`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `teacher`
+--
+ALTER TABLE `teacher`
+  ADD PRIMARY KEY (`tid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `attendance_records`
+--
+ALTER TABLE `attendance_records`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+
+--
+-- AUTO_INCREMENT for table `teacher`
+--
+ALTER TABLE `teacher`
+  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE `attendance_records`
+ADD COLUMN `address` VARCHAR(100) NOT NULL AFTER `date`;
+ALTER TABLE `attendance_record` MODIFY COLUMN `sid` INT AUTO_INCREMENT PRIMARY KEY;

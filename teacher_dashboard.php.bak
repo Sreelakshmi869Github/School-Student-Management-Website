@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .home-link {
+            color: #fff;
+			font-size: 18px;
+            text-decoration: none;
+        }
+
+        .panel {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .class-box {
+            width: 120px;
+            height: 80px;
+            margin: 5px;
+            padding: 30px;
+            background-color: #000000;
+            color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .class-box:hover {
+            background-color: green; /* Change this to your desired hover color */
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        Attendance System
+    </div>
+    <div>
+        <a href="website.php" class="home-link">Home</a>
+    </div>
+</div>
+
+<div class="panel">
+    <?php
+    // Display 12 class boxes
+    for ($i = 1; $i <= 12; $i++) {
+        echo '<div class="class-box" onclick="redirectToClass(' . $i . ')">';
+        echo 'Class ' . $i;
+        echo '</div>';
+    }
+    ?>
+</div>
+
+<script>
+    function redirectToClass(classNumber) {
+        // Redirect to the page or action related to the selected class
+        // You can customize this function based on your requirements
+        alert('Redirecting to Class ' + classNumber);
+    }
+</script>
+
+</body>
+</html>

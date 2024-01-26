@@ -1,0 +1,204 @@
+<?php
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "student";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch attendance data for the selected class
+$classNumber = isset($_GET['class']) ? $_GET['class'] : '';
+
+// Determine the suffix based on the class number
+$suffix = '';
+if ($classNumber % 10 == 1 && $classNumber != 11) {
+    $suffix = 'st';
+} elseif ($classNumber % 10 == 2 && $classNumber != 12) {
+    $suffix = 'nd';
+} elseif ($classNumber % 10 == 3 && $classNumber != 13) {
+    $suffix = 'rd';
+} else {
+    $suffix = 'th';
+}
+
+// Fetch student data from the respective table
+$tableName = $classNumber . $suffix;
+$sql = "SELECT * FROM `$tableName`";
+$result = $conn->query($sql);
+
+// Form submission handling
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+    // Insert attendance records into the attendance_records table
+    $date = date('Y-m-d');
+    while ($row = $result->fetch_assoc()) {
+        $studentId = $row['sid'];
+        $status = isset($_POST['attendance-mark-' . $studentId]) ? $_POST['attendance-mark-' . $studentId] : 'present';
+        $insertSql = "INSERT INTO `attendance_records` (class, date, student_id, status,address) VALUES ('$tableName', '$date', $studentId, '$status','$address')";
+        $conn->query($insertSql);
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - Class <?php echo $classNumber . $suffix; ?></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .home-link {
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .attendance-table {
+            width: 80%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .attendance-table th, .attendance-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .attendance-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .attendance-mark {
+            cursor: pointer;
+			color: green;
+        }
+
+        .absent-list {
+            margin-top: 20px;
+        }
+
+        /* Style for absent-mark class */
+        .absent-mark {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        Attendance System
+    </div>
+    <div>
+        <a href="website.php" class="home-link">Home</a>
+    </div>
+</div>
+
+<h2>Attendance - Class <?php echo $classNumber . $suffix; ?></h2>
+
+<form method="post" action="">
+    <?php
+    if ($result->num_rows > 0) {
+        echo '<table class="attendance-table">';
+        echo '<tr>';
+        echo '<th>Student ID</th>';
+        echo '<th>Student Name</th>';
+        echo '<th>Status</th>';
+        echo '</tr>';
+        while ($row = $result->fetch_assoc()) {
+            echo '<tr>';
+            echo '<td>' . $row['sid'] . '</td>';
+            echo '<td>' . $row['sname'] . '</td>';
+            echo '<td>';
+            echo '<span id="attendance-mark-' . $row['sid'] . '" class="attendance-mark" onclick="toggleAttendance(' . $row['sid'] . ')">&#10004;</span>';
+            echo '<input type="hidden" name="attendance-mark-' . $row['sid'] . '" value="present">';
+            echo '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+    } else {
+        echo 'No students found for this class.';
+    }
+    ?>
+
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+<div class="absent-list">
+    <?php
+    if (isset($_POST['submit'])) {
+        echo '<p>Absent Students:</p>';
+        // Display the list of absent students
+        $date = date('Y-m-d');
+        $result = $conn->query("SELECT * FROM `attendance_records` WHERE `class` = '$tableName' AND `date` = '$date'");
+        while ($row = $result->fetch_assoc()) {
+            $studentId = $row['student_id'];
+            if ($row['status'] === 'absent') {
+                echo '<p>' . $row['student_id'] . ' - ' . $row['status'] . '</p>';
+            }
+        }
+    }
+    ?>
+</div>
+
+<script>
+    function toggleAttendance(studentId) {
+        var markSpan = document.getElementById('attendance-mark-' + studentId);
+        var currentAttendance = markSpan.getAttribute('data-attendance');
+
+        if (currentAttendance === 'present') {
+            markSpan.innerHTML = '&#10060;'; // Change to red X
+            markSpan.classList.add('absent-mark'); // Add a class for styling
+            markSpan.setAttribute('data-attendance', 'absent');
+            // Update the hidden input field
+            var hiddenInput = document.querySelector('input[name="attendance-mark-' + studentId + '"]');
+            hiddenInput.value = 'absent';
+        } else {
+            markSpan.innerHTML = '&#10004;'; // Change back to green tick
+            markSpan.classList.remove('absent-mark'); // Remove the class for styling
+            markSpan.setAttribute('data-attendance', 'present');
+            // Update the hidden input field
+            var hiddenInput = document.querySelector('input[name="attendance-mark-' + studentId + '"]');
+            hiddenInput.value = 'present';
+        }
+    }
+</script>
+
+</body>
+</html>
+
+<?php
+// Close the database connection
+$conn->close();
+?>

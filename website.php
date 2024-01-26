@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Your Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('school4.jpg'); /* Add the path to your image file */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .box a {
+            display: block;
+            padding: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+            background-color: #4caf50;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .box a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="box">
+        <h2>View Student Details</h2>
+        <p>Explore student information here.</p>
+        <a href="viewstudents.php">Go to Student Details</a>
+    </div>
+
+    <div class="box">
+        <h2>Faculty Login</h2>
+        <p>Login for faculty members.</p>
+        <a href="teacherlogin.php">Faculty Login</a>
+    </div>
+
+    <div class="box">
+        <h2>Admin Login</h2>
+        <p>Login for administrators.</p>
+        <a href="admindata.php">Admin Login</a>
+    </div>
+</div>
+
+</body>
+</html>
